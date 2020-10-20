@@ -30,12 +30,10 @@ Node* createTree(int key){
 }
 
 void searchTree(int value, Node* root){
-    int f = 0;
     if(root==NULL)
         return;
-    if(root->data==value){
+    if(root->data==value)
         cout<<endl<<"Value is found"<<endl;
-    }
     searchTree(value, root->left);
     searchTree(value, root->right);
 }
