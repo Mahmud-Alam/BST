@@ -2,6 +2,7 @@
 using namespace std;
 
 class Node{
+    public:
     int data;
     Node* left;
     Node* right;
@@ -28,10 +29,21 @@ Node* createTree(int key){
     node->right = createTree(value);
 }
 
-void postOrder(Node* root){
+void searchTree(int value, Node* root){
+    int f = 0;
     if(root==NULL)
         return;
-    postOrder(root->left);
-    postOrder(root->right);
-    cout<<root->data<<" ";
+    if(root->data==value){
+        cout<<endl<<"Value is found"<<endl;
+    }
+    searchTree(value, root->left);
+    searchTree(value, root->right);
+}
+int main(){
+    int key,value;
+    cout<<"Input a root: ";cin>>key;
+    Node* root = createTree(key);
+
+    cout<<endl<<"Input a value what you want to search: ";cin>>value;
+    searchTree(value, root);
 }
